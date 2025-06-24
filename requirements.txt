@@ -1,20 +1,84 @@
-pip install --upgrade \
-  altair attrs beautifulsoup4 blinker cachetools \
-  certifi charset-normalizer click colorama contourpy \
-  cycler entrypoints Faker favicon fonttools gitdb \
-  GitPython htbuilder idna importlib-metadata Jinja2 \
-  joblib jsonschema jsonschema-specifications kiwisolver \
-  lxml Markdown markdown-it-py markdownlit MarkupSafe \
-  matplotlib mdurl more-itertools nltk numpy packaging \
-  pandas Pillow protobuf pyarrow pydeck Pygments \
-  pymdown-extensions pyparsing python-dateutil pytz \
-  PyYAML referencing regex requests rich rpds-py \
-  scikit-learn scipy six smmap soupsieve \
-  st-annotated-text st-click-detector st-pages \
-  streamlit streamlit-camera-input-live streamlit-card \
-  streamlit-embedcode streamlit-extras streamlit-faker \
-  streamlit-image-coordinates streamlit-keyup \
-  streamlit-option-menu streamlit-toggle-switch \
-  streamlit-vertical-slider tenacity threadpoolctl \
-  toml toolz tornado tqdm typing_extensions tzdata \
-  tzlocal urllib3 validators watchdog zipp
+altair
+attrs
+beautifulsoup4
+blinker
+cachetools
+certifi
+charset-normalizer
+click
+colorama
+contourpy
+cycler
+entrypoints
+Faker
+favicon
+fonttools
+gitdb
+GitPython
+htbuilder
+idna
+importlib-metadata
+Jinja2
+joblib
+jsonschema
+jsonschema-specifications
+kiwisolver
+lxml
+Markdown
+markdown-it-py
+markdownlit
+MarkupSafe
+matplotlib
+mdurl
+more-itertools
+nltk
+numpy
+packaging
+pandas
+Pillow
+protobuf
+pyarrow
+pydeck
+Pygments
+pymdown-extensions
+pyparsing
+python-dateutil
+pytz
+PyYAML
+referencing
+regex
+requests
+rich
+rpds-py
+scikit-learn
+scipy
+six
+smmap
+soupsieve
+st-annotated-text
+st-click-detector
+st-pages
+streamlit
+streamlit-camera-input-live
+streamlit-card
+streamlit-embedcode
+streamlit-extras
+streamlit-faker
+streamlit-image-coordinates
+streamlit-keyup
+streamlit-option-menu
+streamlit-toggle-switch
+streamlit-vertical-slider
+tenacity
+threadpoolctl
+toml
+toolz
+tornado
+tqdm
+typing_extensions
+tzdata
+tzlocal
+urllib3
+validators
+watchdog
+zipp
