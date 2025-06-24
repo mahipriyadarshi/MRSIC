@@ -44,8 +44,8 @@ def get_crew(obj):
 
 def read_csv_to_df():
     #  Reading both the csv files
-    credit_ = pd.read_csv(r'Files/tmdb_5000_credits.csv')
-    movies = pd.read_csv(r'Files/tmdb_5000_movies.csv')
+    credit_ = pd.read_csv(r'models/tmdb_5000_credits.csv')
+    movies = pd.read_csv(r'models/tmdb_5000_movies.csv')
 
     # Merging the dataframes
     movies = movies.merge(credit_, on='title')
@@ -189,13 +189,13 @@ def fetch_person_details(id_):
 
 def get_details(selected_movie_name):
     # Loading both the dataframes for fast reading
-    pickle_file_path = r'Files/movies_dict.pkl'
+    pickle_file_path = r'models/movies_dict.pkl'
     with open(pickle_file_path, 'rb') as pickle_file:
         loaded_dict = pickle.load(pickle_file)
 
     movies = pd.DataFrame.from_dict(loaded_dict)
 
-    pickle_file_path = r'Files/movies2_dict.pkl'
+    pickle_file_path = r'models/movies2_dict.pkl'
     with open(pickle_file_path, 'rb') as pickle_file:
         loaded_dict_2 = pickle.load(pickle_file)
 
