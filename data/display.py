@@ -1,5 +1,5 @@
 import os
-from processing import preprocess
+from data import preprocess
 import pickle
 import pandas as pd
 from sklearn.feature_extraction.text import CountVectorizer
@@ -24,7 +24,7 @@ class Main():
         return self.new_df, self.movies, self.movies2
 
     def get_df(self):
-        pickle_file_path = r'Files/new_df_dict.pkl'
+        pickle_file_path = r'models/new_df_dict.pkl'
 
         # Checking if preprocessed dataframe already exists or not
         if os.path.exists(pickle_file_path):
@@ -38,14 +38,14 @@ class Main():
             self.movies = pd.DataFrame.from_dict(loaded_dict)
 
             # Now, for the movies2 doing the same work
-            pickle_file_path = r'Files/movies2_dict.pkl'
+            pickle_file_path = r'models/movies2_dict.pkl'
             with open(pickle_file_path, 'rb') as pickle_file:
                 loaded_dict_2 = pickle.load(pickle_file)
 
             self.movies2 = pd.DataFrame.from_dict(loaded_dict_2)
 
             # Now, For new_df
-            pickle_file_path = r'Files/new_df_dict.pkl'
+            pickle_file_path = r'models/new_df_dict.pkl'
             with open(pickle_file_path, 'rb') as pickle_file:
                 loaded_dict = pickle.load(pickle_file)
 
@@ -60,14 +60,14 @@ class Main():
             #  Now, doing for the movies dataframw
             movies_dict = self.movies.to_dict()
 
-            pickle_file_path = r'Files/movies_dict.pkl'
+            pickle_file_path = r'models/movies_dict.pkl'
             with open(pickle_file_path, 'wb') as pickle_file:
                 pickle.dump(movies_dict, pickle_file)
 
             #  Now, doing for the movies2 dataframe
             movies2_dict = self.movies2.to_dict()
 
-            pickle_file_path = r'Files/movies2_dict.pkl'
+            pickle_file_path = r'models/movies2_dict.pkl'
             with open(pickle_file_path, 'wb') as pickle_file:
                 pickle.dump(movies2_dict, pickle_file)
 
@@ -75,7 +75,7 @@ class Main():
             df_dict = self.new_df.to_dict()
 
             # Save the dictionary to a Pickle file
-            pickle_file_path = r'Files/new_df_dict.pkl'
+            pickle_file_path = r'models/new_df_dict.pkl'
             with open(pickle_file_path, 'wb') as pickle_file:
                 pickle.dump(df_dict, pickle_file)
 
@@ -87,7 +87,7 @@ class Main():
         return sim_bt
 
     def get_similarity(self, col_name):
-        pickle_file_path = fr'Files/similarity_tags_{col_name}.pkl'
+        pickle_file_path = fr'models/similarity_tags_{col_name}.pkl'
         if os.path.exists(pickle_file_path):
             pass
         else:
