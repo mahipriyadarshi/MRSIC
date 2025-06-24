@@ -1,8 +1,8 @@
 import streamlit as st
 import streamlit_option_menu
 from streamlit_extras.stoggle import stoggle
-from processing import preprocess
-from processing.display import Main
+from data import preprocess
+from data.display import Main
 
 # Setting the wide mode as default
 st.set_page_config(layout="wide")
@@ -50,12 +50,12 @@ def main():
         rec_button = st.button('Recommend')
         if rec_button:
             st.session_state.selected_movie_name = selected_movie_name
-            recommendation_tags(new_df, selected_movie_name, r'Files/similarity_tags_tags.pkl',"are")
-            recommendation_tags(new_df, selected_movie_name, r'Files/similarity_tags_genres.pkl',"on the basis of genres are")
+            recommendation_tags(new_df, selected_movie_name, r'models/similarity_tags_tags.pkl',"are")
+            recommendation_tags(new_df, selected_movie_name, r'models/similarity_tags_genres.pkl',"on the basis of genres are")
             recommendation_tags(new_df, selected_movie_name,
-                                r'Files/similarity_tags_tprduction_comp.pkl',"from the same production company are")
-            recommendation_tags(new_df, selected_movie_name, r'Files/similarity_tags_keywords.pkl',"on the basis of keywords are")
-            recommendation_tags(new_df, selected_movie_name, r'Files/similarity_tags_tcast.pkl',"on the basis of cast are")
+                                r'models/similarity_tags_tprduction_comp.pkl',"from the same production company are")
+            recommendation_tags(new_df, selected_movie_name, r'models/similarity_tags_keywords.pkl',"on the basis of keywords are")
+            recommendation_tags(new_df, selected_movie_name, r'models/similarity_tags_tcast.pkl',"on the basis of cast are")
 
     def recommendation_tags(new_df, selected_movie_name, pickle_file_path,str):
 
