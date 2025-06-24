@@ -31,7 +31,7 @@ class Main():
 
             # Read the Pickle file and load the dictionary -- 3 times
             # For the movies dataframe
-            pickle_file_path = r'Files/movies_dict.pkl'
+            pickle_file_path = r'models/movies_dict.pkl'
             with open(pickle_file_path, 'rb') as pickle_file:
                 loaded_dict = pickle.load(pickle_file)
 
