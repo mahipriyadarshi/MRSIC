@@ -130,7 +130,7 @@ def stemming_stopwords(li):
 
 def fetch_posters(movie_id):
     response = requests.get(
-        'https://api.themoviedb.org/3/movie/{}?api_key=6177b4297dff132d300422e0343471fb'.format(movie_id))
+        'https://api.themoviedb.org/3/movie/{}?api_key=0210e011724fd4ffcb3e34a7fba6b777'.format(movie_id))
     data = response.json()
     try:
         str_ = "https://image.tmdb.org/t/p/w780/" + data['poster_path']
@@ -169,7 +169,7 @@ def vectorise(new_df, col_name):
 
 def fetch_person_details(id_):
     data = requests.get(
-        'https://api.themoviedb.org/3/person/{}?api_key=6177b4297dff132d300422e0343471fb'.format(id_)).json()
+        'https://api.themoviedb.org/3/person/{}?api_key=0210e011724fd4ffcb3e34a7fba6b777'.format(id_)).json()
 
     try:
         url = 'https://image.tmdb.org/t/p/w220_and_h330_face' + data['profile_path']
