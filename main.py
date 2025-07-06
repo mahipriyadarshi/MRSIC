@@ -198,7 +198,7 @@ def main():
     def display_movie_details():
 
         selected_movie_name = st.session_state.selected_movie_name
-        # movie_id = movies[movies['title'] == selected_movie_name]['movie_id']
+        movie_id = movies[movies['title'] == selected_movie_name]['movie_id']
         info = preprocess.get_details(selected_movie_name)
 
         with st.container():

@@ -172,7 +172,7 @@ def vectorise(new_df, col_name):
 def fetch_person_details(id_):
     
     data = requests.get(
-        'https://api.themoviedb.org/3/person/{}?api_key={} '.format(id_,API_KEY)).json()
+        'https://api.themoviedb.org/3/person/{}?api_key={}'.format(id_,API_KEY)).json()
 
     try:
         url = 'https://image.tmdb.org/t/p/w220_and_h330_face' + data['profile_path']
