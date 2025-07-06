@@ -10,7 +10,7 @@ with st.sidebar:
     st.markdown("<h2 style='color:#22c55e;'>🎬 Movie Recommender</h2>", unsafe_allow_html=True)
     st.markdown("<span style='color:#cbd5e1;'>Built using TMDB API & ML</span>", unsafe_allow_html=True)
     st.markdown("<hr style='border: 1px solid #22c55e;'>", unsafe_allow_html=True)
-    st.markdown("<span style='color:#a3e635;'>Made by Priyadarshi Mahi ❤️</span>", unsafe_allow_html=True)
+    st.markdown("<span style='color:#a3e635;'>Made by Mahi Priyadarshi ❤️</span>", unsafe_allow_html=True)
 
 
 # Setting the wide mode as default
