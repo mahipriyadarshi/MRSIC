@@ -8,11 +8,13 @@ from nltk.corpus import stopwords
 from nltk.stem.porter import PorterStemmer
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
-
+import streamlit as st
+API_KEY=st.secrets['api_key']
 # Object for porterStemmer
 ps = PorterStemmer()
 nltk.download('stopwords')
-import streamlit as st
+
+
 
 
 def get_genres(obj):
@@ -130,7 +132,7 @@ def stemming_stopwords(li):
 
 def fetch_posters(movie_id):
     response = requests.get(
-        'https://api.themoviedb.org/3/movie/{}?api_key=0210e011724fd4ffcb3e34a7fba6b777'.format(movie_id))
+        'https://api.themoviedb.org/3/movie/{}?api_key={}'.format(movie_id,API_KEY))
     data = response.json()
     try:
         str_ = "https://image.tmdb.org/t/p/w780/" + data['poster_path']
@@ -168,8 +170,9 @@ def vectorise(new_df, col_name):
 
 
 def fetch_person_details(id_):
+    
     data = requests.get(
-        'https://api.themoviedb.org/3/person/{}?api_key=0210e011724fd4ffcb3e34a7fba6b777'.format(id_)).json()
+        'https://api.themoviedb.org/3/person/{}?api_key={} '.format(id_,API_KEY)).json()
 
     try:
         url = 'https://image.tmdb.org/t/p/w220_and_h330_face' + data['profile_path']

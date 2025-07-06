@@ -3,9 +3,19 @@ import streamlit_option_menu
 from streamlit_extras.stoggle import stoggle
 from data import preprocess
 from data.display import Main
+st.set_page_config(layout="wide")
+
+with st.sidebar:
+    st.image("https://cdn-icons-png.flaticon.com/512/744/744922.png", width=80)
+    st.markdown("<h2 style='color:#22c55e;'>🎬 Movie Recommender</h2>", unsafe_allow_html=True)
+    st.markdown("<span style='color:#cbd5e1;'>Built using TMDB API & ML</span>", unsafe_allow_html=True)
+    st.markdown("<hr style='border: 1px solid #22c55e;'>", unsafe_allow_html=True)
+    st.markdown("<span style='color:#a3e635;'>Made by Priyadarshi Mahi ❤️</span>", unsafe_allow_html=True)
+
 
 # Setting the wide mode as default
-st.set_page_config(layout="wide")
+st.markdown("<h1 style='text-align: center; color: teal;'>Movie Recommender 🎥</h1>", unsafe_allow_html=True)
+
 
 displayed = []
 
@@ -20,8 +30,106 @@ if 'user_menu' not in st.session_state:
 
 
 def main():
+    def apply_custom_css():
+        st.markdown("""
+        <style>
+        .css-1d391kg ul {
+        background-color: white !important;
+        border-radius: 10px;
+        padding: 0.5rem;
+    }
+
+    /* Inactive menu item */
+    .css-1d391kg ul li a {
+        color: teal !important;
+        background-color: #e0f7f7 !important;
+        border-radius: 10px;
+    }
+
+    /* Active (selected) menu item */
+    .css-1d391kg ul li.active a {
+        background-color: teal !important;
+        color: white !important;
+        border-radius: 10px;
+    }
+
+    /* Hover effect */
+    .css-1d391kg ul li a:hover {
+        background-color: #b2dfdb !important;
+        color: black !important;
+    }
+        
+            div[role="tablist"] > div[aria-selected="true"] {
+            background-color: teal !important;
+            color: white !important;
+            border-radius: 5px;
+        }
+
+        /* Style for inactive (unselected) options */
+        div[role="tablist"] > div {
+            color: teal !important;
+            background-color: #e0f7f7 !important;
+            border-radius: 5px;
+        }
+
+        /* Add hover effect */
+        div[role="tablist"] > div:hover {
+            background-color: #b2dfdb !important;
+            color: black !important;
+        }
+        .movie-card {
+            border-radius: 12px;
+            padding: 10px;
+            background-color: #1a1a1a;
+            color: #22c55e;
+            box-shadow: 0 4px 14px rgba(34, 197, 94, 0.25);
+            transition: transform 0.2s;
+            text-align: center;
+        }
+        .movie-card:hover {
+            transform: scale(1.05);
+            background-color: #111;
+        }
+        .movie-title {
+            font-weight: bold;
+            color: #86efac;
+        }
+        .recommend-header {
+            color: #bbf7d0;
+            font-size: 20px;
+            margin-bottom: 5px;
+        }
+        .stButton>button {
+            background-color: #22c55e;
+            color: black;
+            border-radius: 8px;
+            padding: 0.5rem 1rem;
+            font-size: 16px;
+        }
+        .stButton>button:hover {
+            background-color: #16a34a;
+            color: white;
+        }
+        .stSelectbox > div > div {
+            color: #22c55e;
+        }
+        .stSlider > div > div > div {
+            background-color: #22c55e;
+        }
+        .st-bb {
+            color: #22c55e;
+        }
+        h1, h2, h3, h4 {
+            color: #22c55e;
+        }
+        </style>
+        """, unsafe_allow_html=True)
+
+    apply_custom_css()
     def initial_options():
         # To display menu
+        
+
         st.session_state.user_menu = streamlit_option_menu.option_menu(
             menu_title='What are you looking for? 👀',
             options=['Recommend me a similar movie', 'Describe me a movie', 'Check all Movies'],
@@ -76,22 +184,16 @@ def main():
                 cnt += 1
 
         # Columns to display informations of movies i.e. movie title and movie poster
-        col1, col2, col3, col4, col5 = st.columns(5)
-        with col1:
-            st.text(rec_movies[0])
-            st.image(rec_posters[0])
-        with col2:
-            st.text(rec_movies[1])
-            st.image(rec_posters[1])
-        with col3:
-            st.text(rec_movies[2])
-            st.image(rec_posters[2])
-        with col4:
-            st.text(rec_movies[3])
-            st.image(rec_posters[3])
-        with col5:
-            st.text(rec_movies[4])
-            st.image(rec_posters[4])
+        cols = st.columns(5)
+        for i in range(len(rec_movies)):
+            with cols[i]:
+                st.markdown(f"""
+                <div class="movie-card">
+                    <img src="{rec_posters[i]}" width="100%">
+                    <div class="movie-title">{rec_movies[i]}</div>
+                </div>
+                """, unsafe_allow_html=True)
+
 
     def display_movie_details():
 
@@ -155,6 +257,7 @@ def main():
                     st.text("Directed by")
                     st.text(info[12][0])
                 st.text('\n')
+
 
         # Displaying information of casts.
         st.header('Cast')
