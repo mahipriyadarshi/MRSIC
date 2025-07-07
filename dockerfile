@@ -7,7 +7,7 @@ WORKDIR /D:/MRSIC/MRSIC
 # Copy the requirements file and install dependencies
 COPY requirements.txt .
 RUN pip install -r requirements.txt
-
+ENV STREAMLIT_API_KEY=$STREAMLIT_API_KEY
 # Copy your application code
 COPY . .
 
