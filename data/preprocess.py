@@ -3,13 +3,18 @@ import pickle
 import pandas as pd
 import ast
 import requests
+import os
 import nltk
 from nltk.corpus import stopwords
 from nltk.stem.porter import PorterStemmer
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 import streamlit as st
-API_KEY=st.secrets["api_key"]
+from dotenv import load_dotenv
+load_dotenv()
+API_KEY=os.getenv("API_KEY")
+if not API_KEY:
+    API_KEY=st.secrets["api_key"]
 # Object for porterStemmer
 ps = PorterStemmer()
 nltk.download('stopwords')
