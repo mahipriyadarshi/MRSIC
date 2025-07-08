@@ -9,7 +9,7 @@ from nltk.stem.porter import PorterStemmer
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 import streamlit as st
-API_KEY=STREAMLIT_API_KEY
+API_KEY=st.secrets["api_key"]
 # Object for porterStemmer
 ps = PorterStemmer()
 nltk.download('stopwords')
