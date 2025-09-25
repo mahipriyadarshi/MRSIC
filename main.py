@@ -225,7 +225,7 @@ def main():
 
                 st.text('\n')
                 st.write("Overview")
-                st.write(info[3], wrapText=False)
+                st.write(info[3])
                 st.text('\n')
                 col1, col2, col3 = st.columns(3)
                 with col1:
